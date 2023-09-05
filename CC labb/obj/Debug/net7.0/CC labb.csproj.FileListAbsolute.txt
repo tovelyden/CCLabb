@@ -1,0 +1,17 @@
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\bin\Debug\net7.0\CC labb.exe
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\bin\Debug\net7.0\CC labb.deps.json
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\bin\Debug\net7.0\CC labb.runtimeconfig.json
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\bin\Debug\net7.0\CC labb.dll
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\bin\Debug\net7.0\CC labb.pdb
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.AssemblyInfoInputs.cache
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.AssemblyInfo.cs
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.csproj.CoreCompileInputs.cache
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.dll
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\refint\CC labb.dll
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.pdb
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.genruntimeconfig.cache
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\ref\CC labb.dll
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.csproj.AssemblyReference.cache
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\bin\Debug\net7.0\Stockfish.NET.dll
+C:\Users\Tove\Skit\Desktop\CC labb\CC labb\obj\Debug\net7.0\CC labb.csproj.CopyComplete

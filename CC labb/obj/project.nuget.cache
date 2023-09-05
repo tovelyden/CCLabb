@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "UggBhgrjZhJPKRHw7AoEw9OqyhH62L8/o6whx9Cr5tdisi+90nMm6l2IzqsMhWxHVhqkxwgyZF4RSQz0fnR6sw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Tove\\Skit\\Desktop\\CC labb\\CC labb\\CC labb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tove\\.nuget\\packages\\stockfish.net\\1.0.7\\stockfish.net.1.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}
