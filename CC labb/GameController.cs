@@ -8,7 +8,7 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace CC_labb;
 
-class GameController
+class GameController : IGameController
 {
     private IUI UI;
 
