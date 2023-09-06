@@ -1,8 +1,9 @@
-﻿namespace CC_labb;
-
-internal interface IFileHandling
+﻿namespace CC_labb.Interfaces
 {
-    void WriteUserToFile(Player player, string gameName);
-    List<Player> GetSortedPlayerResults(string gameName);
-    List<Player> SortPlayerResults(List<Player> playerResults);
+    internal interface IFileHandling
+    {
+        List<Player> GetSortedPlayerResults(string gameName);
+        List<Player> SortPlayerResults(List<Player> playerResults);
+        void WriteUserToFile(Player player, string gameName);
+    }
 }

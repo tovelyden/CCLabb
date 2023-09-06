@@ -4,7 +4,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using CC_labb;
+using CC_labb.Interfaces;
 
 namespace CC_labb;
 

@@ -8,7 +8,7 @@ using CC_labb;
 
 namespace CC_labb;
 
-class Player : IPlayer
+public class Player : IPlayer
 {
     public string UserName { get; set; }
     public int PlayedGames { get; set; }
