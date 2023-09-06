@@ -1,9 +1,19 @@
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.Engine.ClientProtocol;
+using System.Diagnostics;
+using Xunit.Abstractions;
+
 namespace Programlogiktest;
 
-public class MooTest
+public class MooTests
 {
     MooGameLogic mooGameLogic = new MooGameLogic();
 
+    private readonly ITestOutputHelper output;
+
+    public MooTests(ITestOutputHelper output)
+    {
+        this.output = output;
+    }
     [Fact]
     public void TestAmountOfReturningRandomNumbers()
     {
@@ -11,6 +21,12 @@ public class MooTest
 
         if (mooGameLogic.GetRandomNumbers().Length != fourNumbers.Length)
             throw new Exception();
+    }
+
+    [Fact]
+    public void TestIfAllReturningNumbersAreDifferent()
+    {
+       
     }
 
     [Fact]
