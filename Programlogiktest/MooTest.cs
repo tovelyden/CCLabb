@@ -2,10 +2,11 @@ namespace Programlogiktest;
 
 public class MooTest
 {
+    MooGameLogic mooGameLogic = new MooGameLogic();
+
     [Fact]
-    public void TestAmountOfReturningNumbers()
+    public void TestAmountOfReturningRandomNumbers()
     {
-        var mooGameLogic = new MooGameLogic();
         string fourNumbers = "1234";
 
         if (mooGameLogic.GetRandomNumbers().Length != fourNumbers.Length)
@@ -13,11 +14,23 @@ public class MooTest
     }
 
     [Fact]
-    public void TestMatchingNumbersResult()
+    public void TestMatchingNumbersRightPlace()
     {
-        var mooGameLogic = new MooGameLogic();
+        if (mooGameLogic.CheckMatchingNumbers("1234", "1234") != "BBBB")
+            throw new Exception();
+    }
 
-        if (mooGameLogic.CheckMatchingNumbers("1234", "1234") != "BBBC")
+    [Fact]
+    public void TestMatchingNumbersWrongPlace()
+    {
+        if (mooGameLogic.CheckMatchingNumbers("1234", "4321") != "CCCC")
+            throw new Exception();
+    }
+
+    [Fact]
+    public void TestMatchingNumbersWrongNumbers()
+    {
+        if (mooGameLogic.CheckMatchingNumbers("1234", "5678") != "")
             throw new Exception();
     }
 }
