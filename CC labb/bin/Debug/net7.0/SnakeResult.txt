@@ -12,3 +12,9 @@ dd: 1
 gg: 4
 k: 0
 w: 3
+asd: 1
+ddd: 4
+d: 0
+ASD: 0
+ddd: 1
+T: 1

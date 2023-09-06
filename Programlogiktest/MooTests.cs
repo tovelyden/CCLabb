@@ -8,12 +8,6 @@ public class MooTests
 {
     MooGameLogic mooGameLogic = new MooGameLogic();
 
-    private readonly ITestOutputHelper output;
-
-    public MooTests(ITestOutputHelper output)
-    {
-        this.output = output;
-    }
     [Fact]
     public void TestAmountOfReturningRandomNumbers()
     {
@@ -21,12 +15,6 @@ public class MooTests
 
         if (mooGameLogic.GetRandomNumbers().Length != fourNumbers.Length)
             throw new Exception();
-    }
-
-    [Fact]
-    public void TestIfAllReturningNumbersAreDifferent()
-    {
-       
     }
 
     [Fact]

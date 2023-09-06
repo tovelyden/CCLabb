@@ -1,4 +1,4 @@
-﻿namespace CC_labb.Interfaces;
+﻿namespace CC_labb;
 
 internal interface IFileHandling
 {

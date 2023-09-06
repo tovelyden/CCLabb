@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CC_labb.Interfaces;
+using CC_labb;
 
-namespace CC_labb.Moo;
+namespace CC_labb;
 
 class MooGame : IGame
 {

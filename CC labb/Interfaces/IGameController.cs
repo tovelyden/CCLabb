@@ -1,6 +1,4 @@
-﻿using CC_labb.Interfaces;
-
-namespace CC_labb;
+﻿namespace CC_labb;
 
 interface IGameController
 {

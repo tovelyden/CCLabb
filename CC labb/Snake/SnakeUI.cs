@@ -25,12 +25,16 @@ public class SnakeUI : UI
         Console.SetCursorPosition(59, 0);
         WriteLine($"Current score: {score}");
     }
+    public override string ShowResultForRound(int score)
+    {
+        return ($"You ate {score} pieces of food. Good job!");
+    }
     public void ClearConsole()
     {
         Console.Clear();
     }
-    public override string ShowResultForRound(int score)
+    public void Write(string s)
     {
-        return ($"You ate {score} pieces of food. Good job!");
+        Console.Write(s);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CC_labb.Interfaces;
+using CC_labb;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace CC_labb;
@@ -14,10 +14,6 @@ public class UI : IUI
     {
         Console.WriteLine(s);
     }
-    public void Write(string s)
-    {
-        Console.Write(s);
-    }
     public string Read()
     {
         return Console.ReadLine();
@@ -26,7 +22,6 @@ public class UI : IUI
     {
         System.Environment.Exit(0);
     }
-
     public virtual string ShowResultForRound(int score)
     {
         return ("Correct, it took " + score + " guesses\n");

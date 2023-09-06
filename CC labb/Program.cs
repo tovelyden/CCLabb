@@ -2,8 +2,6 @@
 using System.IO;
 using System.Collections.Generic;
 using CC_labb;
-using CC_labb.Interfaces;
-using CC_labb.Moo;
 
 namespace CC_labb;
 
