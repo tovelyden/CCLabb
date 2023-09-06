@@ -6,95 +6,94 @@ using System.Threading.Tasks;
 using CC_labb.Interfaces;
 using static System.Formats.Asn1.AsnWriter;
 
-namespace CC_labb
+namespace CC_labb;
+
+class GameController
 {
-    class GameController
+    private IUI UI;
+
+    public List<IGame> Games;
+
+    public FileHandling fileHandling;
+
+    public GameController(IUI ui)
     {
-        private IUI UI;
+        this.UI = ui;
+        Games = new List<IGame>();
+        fileHandling = new FileHandling();
+    }
+    public void StartGame()
+    {
+        UI.WriteLine("Choose what game to play or press 0 to see score boards:");
 
-        public List<IGame> Games;
+        IGame pickedGame = PickGame();
 
-        public FileHandling fileHandling;
+        string userName = GetUserName();
 
-        public GameController(IUI ui)
+        pickedGame.PlayGame();
+
+        fileHandling.WriteUserToFile(new Player(userName, pickedGame.Score), pickedGame.GameName);
+        ShowTopList(pickedGame.GameName);
+
+        ContinueOrExit();
+    }
+    public IGame PickGame()
+    {
+        int listNumber = 1;
+
+        for (int i = 0; i < Games.Count; i++)
         {
-            this.UI = ui;
-            Games = new List<IGame>();
-            fileHandling = new FileHandling();
+            UI.WriteLine($"{listNumber}. {Games[i].GameName}");
+            listNumber++;
         }
-        public void StartGame()
+
+        int menuChoice = int.Parse(UI.Read());
+
+        if (menuChoice == 0)
         {
-            UI.WriteLine("Choose what game to play or press 0 to see score boards:");
-
-            IGame pickedGame = PickGame();
-
-            string userName = GetUserName();
-
-            pickedGame.PlayGame();
-
-            fileHandling.WriteUserToFile(new Player(userName, pickedGame.Score), pickedGame.GameName);
-            ShowTopList(pickedGame.GameName);
-
+            ShowAllTopLists();
             ContinueOrExit();
         }
-        public IGame PickGame()
+
+        return Games[menuChoice - 1];
+    }
+    private string GetUserName()
+    {
+        UI.WriteLine("Enter your username:\n");
+
+        string userName = UI.Read();
+        return userName;
+    }
+    private void ContinueOrExit()
+    {
+        UI.WriteLine("Continue? y/n");
+        string answer = UI.Read();
+
+        if (answer.Substring(0, 1).ToLower() == "n")
         {
-            int listNumber = 1;
-
-            for (int i = 0; i < Games.Count; i++)
-            {
-                UI.WriteLine($"{listNumber}. {Games[i].GameName}");
-                listNumber++;
-            }
-
-            int menuChoice = int.Parse(UI.Read());
-
-            if (menuChoice == 0)
-            {
-                ShowAllTopLists();
-                ContinueOrExit();
-            }
-
-            return Games[menuChoice - 1];
+            UI.ExitProgram();
         }
-        private string GetUserName()
+        else
         {
-            UI.WriteLine("Enter your username:\n");
-
-            string userName = UI.Read();
-            return userName;
+            StartGame();
         }
-        private void ContinueOrExit()
-        {
-            UI.WriteLine("Continue? y/n");
-            string answer = UI.Read();
+    }
+    public void ShowTopList(string gameName)
+    {
+        List<Player> sortedPlayerResults = fileHandling.GetSortedPlayerResults(gameName);
 
-            if (answer.Substring(0, 1).ToLower() == "n")
-            {
-                UI.ExitProgram();
-            }
-            else
-            {
-                StartGame();
-            }
+        Console.WriteLine($"\n---Score Board for {gameName}---\nPlayer   games  average");
+
+        foreach (Player player in sortedPlayerResults)
+        {
+            Console.WriteLine(string.Format("{0,-9}{1,5:D}{2,9:F2}", player.UserName, player.PlayedGames, player.Average()));
         }
-        public void ShowTopList(string gameName)
+    }
+    public void ShowAllTopLists()
+    {
+        foreach (var game in Games)
         {
-            List<Player> sortedPlayerResults = fileHandling.GetPlayerResults(gameName);
-
-            Console.WriteLine($"\n---Score Board for {gameName}---\nPlayer   games  average");
-
-            foreach (Player player in sortedPlayerResults)
-            {
-                Console.WriteLine(string.Format("{0,-9}{1,5:D}{2,9:F2}", player.UserName, player.PlayedGames, player.Average()));
-            }
-        }
-        public void ShowAllTopLists()
-        {
-            foreach (var game in Games)
-            {
-                ShowTopList(game.GameName);
-            }
+            ShowTopList(game.GameName);
         }
     }
 }

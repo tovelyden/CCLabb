@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CC_labb.Interfaces
-{
-    interface IGame
-    {
-        IUI UI { set; }
-        string GameName { get; set; }
-        int Score { get; set; }
+namespace CC_labb.Interfaces;
 
-        void PlayGame();
-    }
+interface IGame
+{
+    IUI UI { set; }
+    string GameName { get; set; }
+    int Score { get; set; }
+
+    void PlayGame();
 }

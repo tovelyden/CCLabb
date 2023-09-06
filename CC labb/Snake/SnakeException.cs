@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CC_labb.Snake
+namespace CC_labb;
+
+public class SnakeException : ApplicationException
 {
-    class SnakeException : ApplicationException
+    public SnakeException(string message) : base(message)
     {
-        public SnakeException(string message) : base(message)
-        {
-            
-        }
+        
     }
 }

@@ -1,27 +1,26 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using CC_labb.Snake;
-using CC_labb.Moo;
+using CC_labb;
 using CC_labb.Interfaces;
+using CC_labb.Moo;
 
-namespace CC_labb
+namespace CC_labb;
+
+class Program
 {
-    class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            //Skriv i dokumentationen om varför ditt IUI SER UT SOM DET GÖÖÖÖÖÖR!!!!!!11111
-            IUI ui = new UI();
+        //Skriv i dokumentationen om varför ditt IUI SER UT SOM DET GÖÖÖÖÖÖR!!!!!!11111
+        IUI ui = new UI();
 
-            GameController gameController = new GameController(ui);
+        GameController gameController = new GameController(ui);
 
-            MooGame mooGame = new MooGame();
-            SnakeGame snakeGame = new SnakeGame();
+        MooGame mooGame = new MooGame();
+        SnakeGame snakeGame = new SnakeGame();
 
-            gameController.Games.Add(mooGame);
-            gameController.Games.Add(snakeGame);
-            gameController.StartGame();
-        }
+        gameController.Games.Add(mooGame);
+        gameController.Games.Add(snakeGame);
+        gameController.StartGame();
     }
 }

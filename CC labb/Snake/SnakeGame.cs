@@ -6,56 +6,55 @@ using System.Threading.Tasks;
 using CC_labb.Interfaces;
 using static System.Formats.Asn1.AsnWriter;
 
-namespace CC_labb.Snake
+namespace CC_labb;
+
+public class SnakeGame : IGame
 {
-    class SnakeGame : IGame
+    public IUI UI { get; set; }
+    public SnakeUI UISnake { get; set; }
+    public SnakeGameLogic Logic { get; set; }
+
+    public string GameName { get; set; }
+    public int Score { get; set; }
+    public SnakeGame()
     {
-        public IUI UI { get; set; }
-        public SnakeUI UISnake { get; set; }
-        public SnakeGameLogic Logic { get; set; }
+        Console.WindowHeight = 25;
+        Console.WindowWidth = 75;
+        Console.BufferHeight = 25;
+        Console.BufferWidth = 75;
+        Console.CursorVisible = false;
 
-        public string GameName { get; set; }
-        public int Score { get; set; }
-        public SnakeGame()
+        UI = new UI();
+        UISnake = new SnakeUI();
+        Logic = new SnakeGameLogic();
+
+        GameName = "Snake";
+        Score = 0;
+    }
+    public void PlayGame()
+    {
+        Logic.ResetSnake();
+        bool play = true;
+        while (play)
         {
-            Console.WindowHeight = 25;
-            Console.WindowWidth = 75;
-            Console.BufferHeight = 25;
-            Console.BufferWidth = 75;
-            Console.CursorVisible = false;
-
-            UI = new UI();
-            UISnake = new SnakeUI();
-            Logic = new SnakeGameLogic();
-
-            GameName = "Snake";
-            Score = 0;
-        }
-        public void PlayGame()
-        {
-            Logic.ResetSnake();
-            bool play = true;
-            while (play)
+            try
             {
-                try
-                {
-                    Score = Logic.GetScore();
-                    UISnake.SeeCurrentScore(Score);
-                    Logic.food.DrawFood();
-                    Logic.Input();
-                    UISnake.DrawSnake(Logic.snake);
-                    Logic.MoveSnake();
-                    Logic.GrowSnake();
-                    UISnake.ClearConsole();
-                    Logic.HitSelf(UISnake);
-                    Logic.HitWall(UISnake);
-                }
-                catch (SnakeException e)
-                {
-                    UISnake.ClearConsole();
-                    UI.WriteLine(e.Message);
-                    play = false;
-                }
+                Score = Logic.GetScore();
+                UISnake.SeeCurrentScore(Score);
+                Logic.food.DrawFood();
+                Logic.Input();
+                UISnake.DrawSnake(Logic.snake);
+                Logic.MoveSnake();
+                Logic.GrowSnake();
+                UISnake.ClearConsole();
+                Logic.HitSelf(UISnake);
+                Logic.HitWall(UISnake);
+            }
+            catch (SnakeException e)
+            {
+                UISnake.ClearConsole();
+                UI.WriteLine(e.Message);
+                play = false;
             }
         }
     }

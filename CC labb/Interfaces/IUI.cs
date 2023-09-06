@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CC_labb.Interfaces
+namespace CC_labb.Interfaces;
+
+public interface IUI
 {
-    interface IUI
-    {
-        void WriteLine(string s);
-        void Write(string s);
-        string Read();
-        void ExitProgram();
-        string ShowResultForRound(int score);
-    }
+    void WriteLine(string s);
+    void Write(string s);
+    string Read();
+    void ExitProgram();
+    string ShowResultForRound(int score);
 }
