@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using CC_labb;
-
-namespace CC_labb;
+﻿namespace CC_labb;
 
 class Program
 {

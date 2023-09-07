@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CC_labb;
-
 namespace CC_labb;
 
 public class Player : IPlayer

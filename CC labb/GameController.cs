@@ -1,26 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CC_labb;
-using static System.Formats.Asn1.AsnWriter;
-
-namespace CC_labb;
+﻿namespace CC_labb;
 
 class GameController : IGameController
 {
-    private IUI UI;
-
-    public List<IGame> Games;
-
-    public FileHandling fileHandling;
-
+    public IUI UI { get; set; }
+    public List<IGame> Games { get; set; }
+    public FileHandler FileHandle { get; set; }
+    public ScoreBoard Scores { get; set; }
+ 
     public GameController(IUI ui)
     {
         this.UI = ui;
         Games = new List<IGame>();
-        fileHandling = new FileHandling();
+        FileHandle = new FileHandler();
+        Scores = new ScoreBoard();
     }
     public void StartGame()
     {
@@ -31,9 +23,8 @@ class GameController : IGameController
         string userName = GetUserName();
 
         pickedGame.PlayGame();
-
-        fileHandling.WriteUserToFile(new Player(userName, pickedGame.Score), pickedGame.GameName);
-        ShowTopList(pickedGame.GameName);
+        FileHandle.WriteUserToFile(new Player(userName, pickedGame.Score), pickedGame.GameName);
+        Scores.ShowTopList(pickedGame.GameName);
 
         ContinueOrExit();
     }
@@ -51,7 +42,7 @@ class GameController : IGameController
 
         if (menuChoice == 0)
         {
-            ShowAllTopLists();
+            Scores.ShowAllTopLists(Games);
             ContinueOrExit();
         }
 
@@ -76,24 +67,6 @@ class GameController : IGameController
         else
         {
             StartGame();
-        }
-    }
-    public void ShowTopList(string gameName)
-    {
-        List<Player> sortedPlayerResults = fileHandling.GetSortedPlayerResults(gameName);
-
-        Console.WriteLine($"\n---Score Board for {gameName}---\nPlayer   games  average");
-
-        foreach (Player player in sortedPlayerResults)
-        {
-            Console.WriteLine(string.Format("{0,-9}{1,5:D}{2,9:F2}", player.UserName, player.PlayedGames, player.Average()));
-        }
-    }
-    public void ShowAllTopLists()
-    {
-        foreach (var game in Games)
-        {
-            ShowTopList(game.GameName);
         }
     }
 }

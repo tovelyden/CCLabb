@@ -1,6 +1,6 @@
 ﻿namespace CC_labb;
 
-internal interface IPlayer
+interface IPlayer
 {
     string UserName { get; }
     int PlayedGames { get; }

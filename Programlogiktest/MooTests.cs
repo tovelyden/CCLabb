@@ -1,7 +1,3 @@
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.Engine.ClientProtocol;
-using System.Diagnostics;
-using Xunit.Abstractions;
-
 namespace Programlogiktest;
 
 public class MooTests
