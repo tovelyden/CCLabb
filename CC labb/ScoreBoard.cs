@@ -1,9 +1,9 @@
 ﻿namespace CC_labb;
 
-class ScoreBoard
+class ScoreBoard : IScoreBoard
 {
     private IUI UI;
-    private FileHandler FileHandle;
+    private IFileHandler FileHandle;
 
     public ScoreBoard()
     {

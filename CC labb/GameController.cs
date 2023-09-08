@@ -4,8 +4,8 @@ class GameController : IGameController
 {
     public IUI UI { get; set; }
     public List<IGame> Games { get; set; }
-    public FileHandler FileHandle { get; set; }
-    public ScoreBoard Scores { get; set; }
+    public IFileHandler FileHandle { get; set; }
+    public IScoreBoard Scores { get; set; }
  
     public GameController(IUI ui)
     {
