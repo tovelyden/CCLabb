@@ -1,8 +1,8 @@
-﻿namespace CC_labb
+﻿namespace CC_labb;
+
+interface IScoreBoard
 {
-    interface IScoreBoard
-    {
-        void ShowAllTopLists(List<IGame> Games);
-        void ShowTopList(string gameName);
-    }
+    void ShowAllTopLists(List<IGame> Games);
+    void ShowTopList(string gameName);
+    void SendNewPlayerScoreToFile(Player newPlayer, string gameName);
 }

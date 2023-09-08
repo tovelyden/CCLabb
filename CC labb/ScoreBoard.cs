@@ -10,6 +10,10 @@ class ScoreBoard : IScoreBoard
         this.UI = new UI();
         this.FileHandle = new FileHandler();
     }
+    public void SendNewPlayerScoreToFile(Player newPlayer, string gameName)
+    {
+        FileHandle.WriteUserToFile(newPlayer, gameName);
+    }
     public void ShowTopList(string gameName)
     {
         List<Player> sortedPlayerResults = FileHandle.GetSortedPlayerResultsFromFile(gameName);

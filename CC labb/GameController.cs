@@ -4,14 +4,12 @@ class GameController : IGameController
 {
     public IUI UI { get; set; }
     public List<IGame> Games { get; set; }
-    public IFileHandler FileHandle { get; set; }
     public IScoreBoard Scores { get; set; }
  
     public GameController(IUI ui)
     {
         this.UI = ui;
         Games = new List<IGame>();
-        FileHandle = new FileHandler();
         Scores = new ScoreBoard();
     }
     public void StartGame()
@@ -23,7 +21,8 @@ class GameController : IGameController
         string userName = GetUserName();
 
         pickedGame.PlayGame();
-        FileHandle.WriteUserToFile(new Player(userName, pickedGame.Score), pickedGame.GameName);
+
+        Scores.SendNewPlayerScoreToFile(new Player(userName, pickedGame.Score), pickedGame.GameName);
         Scores.ShowTopList(pickedGame.GameName);
 
         ContinueOrExit();
