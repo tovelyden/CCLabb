@@ -3,8 +3,8 @@
 public class SnakeGame : IGame
 {
     public IUI UI { get; set; }
-    public SnakeUI UISnake { get; set; }
-    public SnakeGameLogic Logic { get; set; }
+    private SnakeUI UISnake { get; set; }
+    private SnakeGameLogic Logic { get; set; }
 
     public string GameName { get; set; }
     public int Score { get; set; }
