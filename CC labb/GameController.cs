@@ -65,6 +65,7 @@ class GameController : IGameController
         }
         else
         {
+            Console.Clear();
             StartGame();
         }
     }

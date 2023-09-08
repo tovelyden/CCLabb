@@ -3,17 +3,17 @@
 class MooGame : IGame
 {
     public IUI UI { get; set; }
-
-    private MooGameLogic Logic;
     public string GameName { get; set; }
     public int Score { get; set; }
+
+    private MooGameLogic Logic;
 
     public MooGame()
     {
         UI = new UI();
-        Logic = new MooGameLogic();
         GameName = "Moo";
         Score = 0;
+        Logic = new MooGameLogic();
     }
     public void PlayGame()
     {

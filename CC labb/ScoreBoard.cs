@@ -12,7 +12,7 @@ class ScoreBoard : IScoreBoard
     }
     public void SendNewPlayerScoreToFile(Player newPlayer, string gameName)
     {
-        FileHandle.WriteUserToFile(newPlayer, gameName);
+        FileHandle.WritePlayerToFile(newPlayer, gameName);
     }
     public void ShowTopList(string gameName)
     {

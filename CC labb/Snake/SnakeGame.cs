@@ -10,10 +10,7 @@ public class SnakeGame : IGame
     public int Score { get; set; }
     public SnakeGame()
     {
-        Console.WindowHeight = 25;
-        Console.WindowWidth = 75;
-        Console.BufferHeight = 25;
-        Console.BufferWidth = 75;
+        Console.SetWindowSize(75, 25);
         Console.CursorVisible = false;
 
         UI = new UI();
@@ -31,6 +28,7 @@ public class SnakeGame : IGame
         {
             try
             {
+                Console.SetBufferSize(75, 25);
                 Score = Logic.GetScore();
                 UISnake.SeeCurrentScore(Score);
                 Logic.food.DrawFood();
@@ -44,8 +42,9 @@ public class SnakeGame : IGame
             }
             catch (SnakeException e)
             {
-                UISnake.ClearConsole();
+                UI.ClearConsole();
                 UI.WriteLine(e.Message);
+                Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
                 play = false;
             }
         }

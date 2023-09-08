@@ -10,6 +10,10 @@ public class UI : IUI
     {
         return Console.ReadLine();
     }
+    public void ClearConsole()
+    {
+        Console.Clear();
+    }
     public void ExitProgram()
     {
         System.Environment.Exit(0);

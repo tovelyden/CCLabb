@@ -2,7 +2,7 @@
 
  public class FileHandler : IFileHandler
 {
-    public void WriteUserToFile(Player player, string gameName)
+    public void WritePlayerToFile(Player player, string gameName)
     {
         StreamWriter fileInput = new StreamWriter($"{gameName}Result.txt", append: true);
         fileInput.WriteLine(player.UserName + ": " + player.Score);

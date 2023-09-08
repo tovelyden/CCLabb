@@ -21,10 +21,6 @@ public class SnakeUI : UI
     {
         return ($"You ate {score} pieces of food. Good job!");
     }
-    public void ClearConsole()
-    {
-        Console.Clear();
-    }
     public void Write(string s)
     {
         Console.Write(s);
